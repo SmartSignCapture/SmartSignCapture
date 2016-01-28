@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:orientation="vertical">
+
+    <RelativeLayout
+        style="@style/MessageThreadBackground"
+        android:layout_marginRight="60dp"
+
+        android:background="@drawable/bg_message_received">
+
+        <ImageView
+            android:id="@+id/ivAvatar"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"
+            android:layout_marginRight="10dp"
+
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_friends" />
+
+        <TextView
+            android:id="@+id/txUserName"
+            android:textAppearance="@style/TextAppearance.Medium.Inverse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/ivAvatar"
+            android:layout_toRightOf="@+id/ivAvatar"
+            android:background="@android:color/transparent"
+            android:text="Martin" />
+
+        <TextView
+            android:id="@id/txDate"
+            android:textAppearance="@style/TextAppearance.Small.Inverse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/ivAvatar"
+            android:textAllCaps="false"
+            android:layout_toRightOf="@+id/ivAvatar"
+            android:background="@android:color/transparent"
+            android:text="Sep, 12:38" />
+    </RelativeLayout>
+</LinearLayout>

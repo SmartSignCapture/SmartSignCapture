@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SmartSignCapture</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_unity">unity</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="email_address">Email Address</string>
+    <string name="password">Password</string>
+    <string name="password_retype">Retype Password</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="user_name">User Name</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="search_contats">Search Contacts</string>
+    <string name="name">Name</string>
+    <string name="tags">Tags</string>
+    <string name="me">Me</string>
+
+    <string name="login_error_wrong_credentials">Email Address or Password is wrong.</string>
+
+    <string name="validation_error_email_address">Not a valid Email-Address</string>
+    <string name="validation_error_email_address_empty">Enter a Email-Address</string>
+    <string name="validation_error_email_address_taken">Email Address already taken</string>
+    <string name="validation_error_password">Not a valid Password</string>
+    <string name="validation_error_password_empty">Enter a Password</string>
+    <string name="validation_error_password_retype">These passwords don\'t match.</string>
+    <string name="validation_error_password_retype_empty">Retype your password</string>
+    <string name="validation_error_default_empty">Enter a value</string>
+    <string name="validation_error_server_not_reachable">The Server is currently not reachable.</string>
+    <string name="validation_error_first_name_empty">Enter your first name</string>
+    <string name="validation_error_last_name_empty">Enter your last name</string>
+    <string name="validation_error_user_name_empty">Enter a user name</string>
+    <string name="validation_error_user_name_taken">Username already taken</string>
+    <string name="title_activity_home">SmartSignCapture</string>
+    <string name="home_tab_title_messages">Messages</string>
+    <string name="home_tab_title_contacts">Friends</string>
+
+    <string name="thread_activity_title_stump"></string>
+
+    <string name="notifcation_friend_request_title">Friend Request</string>
+    <string name="notifcation_friend_request_msg_stump">wants to be your friend!</string>
+
+    <string name="notifcation_friend_request_accepted_title">Friendship Accepted</string>
+    <string name="notifcation_friend_request_accepted_msg_stump">accepted your request.</string>
+
+    <string name="notifcation_new_message_title">New Message</string>
+    <string name="notifcation_new_message_msg_stump">sent you a message.</string>
+    <string name="title_activity_send_message">Send Message</string>
+    <string name="title_activity_message_thread">MessageThreadActivity</string>
+    <string name="title_activity_save_dictionary_entry">New Dictionary Entry</string>
+
+    <string name="empty_list_name_messages">You haven\'t receive any messages yet.</string>
+    <string name="empty_list_dictionary_entries">You haven\'t have created any entries yet.</string>
+
+    <string name="select_receiver">Select Receiver</string>
+
+    <string name="save_dictionary_entry">Save new Entry</string>
+    <string name="error_msg_dict_entry_save">Sorry, the entry couldn\'t be saved. Please try again later.</string>
+
+</resources>

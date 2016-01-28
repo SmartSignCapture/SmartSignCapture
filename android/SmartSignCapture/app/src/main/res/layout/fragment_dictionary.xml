@@ -1,0 +1,27 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="at.fhs.smartsigncapture.view.fragment.DictionaryFragment">
+
+    <ListView
+        android:id="@+id/lvDictionaryEntries"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"></ListView>
+
+    <TextView
+        android:id="@+id/txEmptylistView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/activity_vertical_margin"
+        android:paddingTop="30dp"
+        android:textAllCaps="true"
+        android:text="@string/empty_list_dictionary_entries" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fabNewEntry"
+        style="@style/FAB.add"/>
+
+
+</RelativeLayout>

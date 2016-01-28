@@ -1,0 +1,260 @@
+body {
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Hind Vadodara', sans-serif;
+}
+
+body.top{
+    overflow-y: scroll;
+}
+
+div#content {
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 180px;
+}
+
+div#bg {
+    background: #036064;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+}
+
+div#bg-overlay {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,000000+100&amp;0.22+0,0.22+100 */
+    background: -moz-radial-gradient(center, ellipse cover, rgba(255, 255, 255, 0.22) 0%, rgba(0, 0, 0, 0.22) 100%); /* FF3.6+ */
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(255, 255, 255, 0.22)), color-stop(100%, rgba(0, 0, 0, 0.22))); /* Chrome,Safari4+ */
+    background: -webkit-radial-gradient(center, ellipse cover, rgba(255, 255, 255, 0.22) 0%, rgba(0, 0, 0, 0.22) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-radial-gradient(center, ellipse cover, rgba(255, 255, 255, 0.22) 0%, rgba(0, 0, 0, 0.22) 100%); /* Opera 12+ */
+    background: -ms-radial-gradient(center, ellipse cover, rgba(255, 255, 255, 0.22) 0%, rgba(0, 0, 0, 0.22) 100%); /* IE10+ */
+    background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.22) 0%, rgba(0, 0, 0, 0.22) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#38ffffff', endColorstr='#38000000', GradientType=1); /* IE6-9 fallback on horizontal gradient */
+}
+
+div#bg-overlay.bg-overlay-top {
+    height: 140px;
+    z-index: 10;
+}
+
+div#bg.bg-top {
+    height: 140px;
+    z-index: 9;
+}
+
+div.search-box-center {
+    margin: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 20%;
+    right: 0;
+    width: 40%;
+    min-width: 400px;
+    max-width: 800px;
+    height: 300px;
+
+}
+
+div.search-box-top {
+    position: fixed;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+    width: 40%;
+    height: 150px;
+    z-index: 15;
+
+}
+
+div#logo {
+    background: url('/dictionary/img/ssc-icon.png');
+    margin: 0 auto;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+div#logo-box {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+div#logo-box h1 {
+    margin-top: 10px;
+    font-weight: lighter;
+    color: #ffffff;
+    font-size: 20pt;
+
+}
+
+.header-box-middle {
+
+}
+
+div#logo-box .header-box-top {
+    font-size: 0pt;
+    margin: 0pt;
+    padding: 0pt;
+}
+
+div#logo.logo-top {
+    width: 65px;
+    height: 65px;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
+
+.logo-middle {
+    width: 150px;
+    height: 150px;
+    display: block;
+}
+
+.panel-ssc .panel-heading {
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#5da1a5+0,5da1a5+100&0.22+0,0.75+100 */
+    /*background: -moz-linear-gradient(top, rgba(93,161,165,0.22) 0%, rgba(93,161,165,0.75) 100%); *//* FF3.6+ */
+    /*background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(93,161,165,0.22)), color-stop(100%,rgba(93,161,165,0.75))); *//* Chrome,Safari4+ */
+    /*background: -webkit-linear-gradient(top, rgba(93,161,165,0.22) 0%,rgba(93,161,165,0.75) 100%); *//* Chrome10+,Safari5.1+ */
+    /*background: -o-linear-gradient(top, rgba(93,161,165,0.22) 0%,rgba(93,161,165,0.75) 100%); *//* Opera 11.10+ */
+    /*background: -ms-linear-gradient(top, rgba(93,161,165,0.22) 0%,rgba(93,161,165,0.75) 100%); *//* IE10+ */
+    /*background: linear-gradient(to bottom, rgba(93,161,165,0.22) 0%,rgba(93,161,165,0.75) 100%); *//* W3C */
+    /*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#385da1a5', endColorstr='#bf5da1a5',GradientType=0 ); *//* IE6-9 */
+
+    background-color: white !important;
+    background: none !important;
+}
+
+.panel-ssc {
+    background: none !important;
+}
+
+.panel-ssc .panel-heading h2 {
+    color: #036064;
+}
+
+.panel-ssc .panel-footer {
+    background: none;
+}
+
+.panel-ssc .panel-body {
+    background: none;
+    height: 100px;
+}
+
+.label-ssc {
+    background-color: rgba(3, 96, 100, 0.7);
+    border-radius: 1em;
+    font-size: 13px;
+    font-weight: lighter;
+}
+
+a.bootcards-cards-link:link,
+a.bootcards-cards-link:active,
+a.bootcards-cards-link:hover,
+a.bootcards-cards-link:visited {
+    text-decoration: none;
+    display: block;
+    background-color: white;
+    border-radius: 4px;
+}
+
+a.bootcards-cards-link:hover {
+
+}
+
+a.bootcards-cards-link:hover {
+    background-color: rgb(243, 243, 243);
+}
+
+div#page-wrapper {
+    position: absolute;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    bottom: 0px : right : 0 px;
+    background: white;
+}
+
+div#white-out {
+    position: fixed;
+
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    bottom: 0px : right : 0 px;
+    background: white;
+}
+
+#unity-lightbox {
+    /*display: none;*/
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 0;
+    left: 0px;
+    top: 140px;
+    bottom: 0px : right : 0 px;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+#close-lighbox{
+    z-index:500;
+    position: absolute;
+    top: 30px;
+    left: 30px;
+}
+
+#close-lighbox .glyphicon{
+    font-size: 50px;
+    font-weight: lighter;
+    color: rgba(51, 51, 51,0.7);
+}
+
+#sign-title{
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#unityPlayer {
+    margin: 0 auto;
+    position: relative;
+}
+
+#share-box{
+    display: block;
+    margin: 0 auto;
+    margin-top:30px;
+    width: 500px;
+}
+
+#share-box label{
+     line-height: 28px;
+     margin-right: 10px;
+ }
+
+#share-box input{
+    width: 400px;
+}
+
+#lightbox-content-wrapper{
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height:900px;
+    width: 100%
+}

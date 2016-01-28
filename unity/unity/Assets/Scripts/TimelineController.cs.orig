@@ -1,0 +1,325 @@
+using UnityEngine;
+using UnityEngine.UI;
+using System.Collections.Generic;
+using UnityEngine.EventSystems;
+
+public class TimelineController : MonoBehaviour
+{
+    public static TimelineController Instance { get; private set; }
+
+    [SerializeField]
+    GameObject TimelineButtonPrefab = null;
+
+    [SerializeField]
+    RectTransform ScrollableLabel = null;
+
+    [SerializeField]
+    RectTransform ElementsOptionsPanel = null;
+
+    [SerializeField]
+    List<GameObject> GestureSelectors = new List<GameObject>();
+
+    // Currently Highlighted Button
+    [SerializeField]
+    Color CurrentElementNormalColor = new Color(1.0f, 0.0f, 0.0f, 1.0f);
+
+    [SerializeField]
+    Color CurrentElementHighlightColor = new Color(0.8f, 0.0f, 0.0f, 1.0f);
+
+    [SerializeField]
+    Color CurrentElementPressedColor = new Color(0.6f, 0.0f, 0.0f, 1.0f);
+
+    [SerializeField]
+    Color CurrentElementDisabledColor = new Color(1.0f, 0.0f, 0.0f, 1.0f);
+
+    Color OriginalNormalColor = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+    Color OriginalHighlightColor = new Color(245.0f / 255.0f, 245.0f / 255.0f, 245.0f / 255.0f, 1.0f);
+    Color OriginalPressedColor = new Color(200.0f / 255.0f, 200.0f / 255.0f, 200.0f / 255.0f, 1.0f);
+    Color OriginalDisabledColor = new Color(200.0f / 255.0f, 200.0f / 255.0f, 200.0f / 255.0f, 0.5f);
+
+    uint currentlySelectedIndex = 0;
+    RectTransform currentlySelectedRectTransform = null;
+    List<TimelineButtonInformation> timelineButtonList = new List<TimelineButtonInformation>();
+
+    [HideInInspector]
+    public TimelineButtonInformation CurrentlySelectedElementInfo {get; private set; }
+
+    bool isTimelineBeingDragged = false;
+<<<<<<< HEAD
+	
+=======
+
+    public static bool OptionsMenuActive { get; private set; }
+
+>>>>>>> 66ca8c64f49e2edf51a3a48b9b6151826a42258a
+
+    void Awake()
+    {
+        Instance = this;
+        CurrentlySelectedElementInfo = null;
+    }
+
+    void Start()
+    {
+        if (TimelineButtonPrefab == null)
+            Debug.LogError("TimelineController:Start: No TimelineButtonPrefab GameObject assigned!");
+
+        if (ScrollableLabel == null)
+            Debug.LogError("TimelineController:Start: No ScrollableLabel GameObject assgined!");
+        else
+        {
+            EventTrigger eventTrigger = ScrollableLabel.GetComponent<EventTrigger>();
+            if (eventTrigger != null)
+            {
+                // eventTrigger.OnBeginDrag()
+            }
+        }
+
+        if (ElementsOptionsPanel == null)
+            Debug.LogError("TimelineController:Start: No ElementsOptionsPanel GameObject assgined!");
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+            AddGestureToTimeline(null);
+
+        if (Input.GetKeyDown(KeyCode.Backspace))
+            RemoveGestureFromTimeline(1);
+
+        if (currentlySelectedRectTransform && ElementsOptionsPanel != null)
+        {
+            Vector3 panelPosition = ElementsOptionsPanel.position;
+            panelPosition.x = currentlySelectedRectTransform.position.x;
+            ElementsOptionsPanel.position = panelPosition;
+        }
+    }
+
+    public void AddGestureToTimeline(TimelineItemData sample)
+    {
+        if (TimelineButtonPrefab != null && ScrollableLabel != null)
+        {
+            GameObject buttonObj = Instantiate(TimelineButtonPrefab) as GameObject;
+            TimelineButtonInformation buttonInfo = new TimelineButtonInformation((uint)timelineButtonList.Count, sample, buttonObj);
+
+            timelineButtonList.Add(buttonInfo);
+
+            Button uiButton = buttonObj.GetComponent<Button>();
+
+            // Setup EventTriggers
+            uiButton.onClick.AddListener(delegate { TimelineElementClicked(buttonInfo.id); });
+
+            uiButton.GetComponentInChildren<Text>().text = timelineButtonList.Count.ToString();
+            uiButton.GetComponent<RectTransform>().SetParent(ScrollableLabel);
+            uiButton.GetComponent<RectTransform>().localScale = Vector3.one;
+        }
+
+    }
+
+    public void OnRemoveGesture()
+    {
+        RemoveGestureFromTimeline(currentlySelectedIndex);
+    }
+
+    public void RemoveGestureFromTimeline(uint index)
+    {
+        if (timelineButtonList[(int)currentlySelectedIndex].button == null)
+            return;
+
+        // Edit the buttons' Ids
+        for (int i = (int)index + 1; i < timelineButtonList.Count; i++)
+        {
+            Button uiButton = timelineButtonList[i].button.GetComponent<Button>();
+            uiButton.GetComponentInChildren<Text>().text = (i).ToString();
+
+            // Change actual id
+            timelineButtonList[i].SetId((uint)(i - 1));
+        }
+
+        Button oldCurrentElement = null;
+        Button newCurrentElement = null;
+
+        // Is there an element from last time that we can disable
+        if (timelineButtonList.Count > 0 && timelineButtonList[(int)currentlySelectedIndex].button != null)
+            oldCurrentElement = timelineButtonList[(int)currentlySelectedIndex].button.GetComponent<Button>();
+        // Do we even have any elements? If not, set the current element to null and return
+        else if (timelineButtonList.Count == 0)
+        {
+            currentlySelectedRectTransform = null;
+            currentlySelectedIndex = 0;
+            CurrentlySelectedElementInfo = null;
+            return;
+        }
+
+        // 
+        if (index > 0 && index == timelineButtonList.Count - 1)
+        {
+            currentlySelectedIndex--;
+            CurrentlySelectedElementInfo = timelineButtonList[(int)currentlySelectedIndex];
+            currentlySelectedRectTransform = CurrentlySelectedElementInfo.button.GetComponent<RectTransform>();
+            
+        }
+        else if (index < timelineButtonList.Count - 1)
+        {
+            currentlySelectedIndex = index + 1;
+            CurrentlySelectedElementInfo = timelineButtonList[(int)currentlySelectedIndex];
+            currentlySelectedRectTransform = CurrentlySelectedElementInfo.button.GetComponent<RectTransform>();
+            currentlySelectedIndex--;
+        }
+
+        if (currentlySelectedRectTransform != null)
+        {
+            newCurrentElement = currentlySelectedRectTransform.GetComponent<Button>();
+        }
+
+        SetColorToCurrentlySelectedElement(oldCurrentElement, newCurrentElement);
+
+        Button uiButtonToRemove = CurrentlySelectedElementInfo.button.GetComponent<Button>();
+        if (uiButtonToRemove != null)
+        {
+            Destroy(uiButtonToRemove.gameObject);
+        }
+
+        timelineButtonList.RemoveAt((int)index);
+
+
+        if (timelineButtonList.Count == 0 && ElementsOptionsPanel.gameObject.activeInHierarchy)
+        {
+            ElementsOptionsPanel.gameObject.SetActive(false);
+        }
+
+    }
+
+    public void TimelineElementClicked(uint index)
+    {
+        if (!ElementsOptionsPanel.gameObject.activeInHierarchy || 
+            (ElementsOptionsPanel.gameObject.activeInHierarchy && 
+            currentlySelectedRectTransform != timelineButtonList[(int)index].button.GetComponent<RectTransform>()))
+        {
+            HandClickControl.Instance.Play(timelineButtonList[(int)index].sample);
+
+            ElementsOptionsPanel.gameObject.SetActive(true);
+            foreach (var item in GestureSelectors)
+                item.SetActive(true);
+
+            OptionsMenuActive = true;
+        }
+        else //deselected
+        {
+            ElementsOptionsPanel.gameObject.SetActive(false);
+            foreach (var item in GestureSelectors)
+                item.SetActive(false);
+
+            OptionsMenuActive = false;
+
+            if (currentlySelectedRectTransform != null) 
+            {
+                SetColorToCurrentlySelectedElement(currentlySelectedRectTransform.GetComponent<Button>(), null);
+                currentlySelectedRectTransform = null;
+                CurrentlySelectedElementInfo = null;
+                return;
+            }
+        }
+
+        Button oldCurrentElement = null;
+        Button newCurrentElement = null;
+        if (currentlySelectedRectTransform != null)
+        {
+            oldCurrentElement = currentlySelectedRectTransform.GetComponent<Button>();
+        }
+
+        currentlySelectedIndex = index;
+        CurrentlySelectedElementInfo = timelineButtonList[(int)currentlySelectedIndex];
+
+        if (ElementsOptionsPanel != null)
+        {
+            RectTransform rect = CurrentlySelectedElementInfo.button.GetComponent<RectTransform>();
+            currentlySelectedRectTransform = rect;
+            Vector3 panelPosition = ElementsOptionsPanel.position;
+            panelPosition.x = rect.position.x;
+            ElementsOptionsPanel.position = panelPosition;
+
+            newCurrentElement = currentlySelectedRectTransform.GetComponent<Button>();
+        }
+
+        SetColorToCurrentlySelectedElement(oldCurrentElement,  newCurrentElement);
+    }
+
+    public void PlayAll()
+    {
+        HandClickControl.Instance.Play(ToItemList());
+    }
+
+    private List<TimelineItemData> ToItemList()
+    {
+        var all = new List<TimelineItemData>();
+
+        foreach (var btn in timelineButtonList)
+            all.Add(btn.sample);
+
+        return all;
+    }
+
+    public void OnTimelineBeginDrag()
+    {
+        isTimelineBeingDragged = true;
+    }
+
+    public void OnTimelineEndDrag()
+    {
+        isTimelineBeingDragged = false;
+    }
+
+    private void SetColorToCurrentlySelectedElement(Button old, Button current)
+    {
+        ColorBlock colorBlock;
+
+        if (old != null)
+        {
+            colorBlock = old.colors;
+            colorBlock.normalColor = OriginalNormalColor;
+            colorBlock.highlightedColor = OriginalHighlightColor;
+            colorBlock.pressedColor = OriginalPressedColor;
+            colorBlock.disabledColor = OriginalDisabledColor;
+            old.colors = colorBlock;
+        }
+
+        if (current != null)
+        {
+            colorBlock = current.colors;
+            colorBlock.normalColor = CurrentElementNormalColor;
+            colorBlock.highlightedColor = CurrentElementHighlightColor;
+            colorBlock.pressedColor = CurrentElementPressedColor;
+            colorBlock.disabledColor = CurrentElementPressedColor;
+            current.colors = colorBlock;
+        }
+
+        if (old == null && current == null)
+        {
+            colorBlock = new ColorBlock();
+            colorBlock.normalColor = OriginalNormalColor;
+            colorBlock.highlightedColor = OriginalHighlightColor;
+            colorBlock.pressedColor = OriginalPressedColor;
+            colorBlock.disabledColor = OriginalDisabledColor;
+            //old.colors = colorBlock;
+        }
+    }
+
+	public string ToJson()
+	{
+		//ToDo Metadata
+		var meta = new TimelineItemData.Meta()
+		{
+			Author = "ToDo Author",
+			DateOfCreation = System.DateTime.Now,
+			Name = "ToDo Name"
+		};
+		
+		var container = new TimelineItemDataMeta(ToItemList(),meta);
+		return TimelineItemData.GetJsonFromList(container);
+	}
+
+
+	//FROM TimeControll.cs
+
+}

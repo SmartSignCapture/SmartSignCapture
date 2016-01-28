@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="message_thread_sent">#5c036064</color>
+    <color name="message_thread_received">#99036064</color>
+
+    <color name="highlight_color">#FF036064</color>
+    <color name="highlight_color_secondary">#99036064</color>
+
+    <color name="white_opaque">#FF036064</color>
+    <color name="pitch_black">#FF036064</color>
+    <color name="text_color">#FF444444</color>
+    <color name="text_color_hint">#FF777777</color>
+    <color name="text_color_primary">#FF555555</color>
+    <color name="text_color_highlight">#FF000000</color>
+    <color name="text_color_secondary">#FF777777</color>
+
+    <color name="text_color_inverse">#ffffff</color>
+    <color name="text_color_hint_inverse">#ffffff</color>
+    <color name="text_color_primary_inverse">#ffffff</color>
+    <color name="text_color_highligh_inverset">#ffffff</color>
+    <color name="text_color_secondary_inverse">#ffffff</color>
+</resources>

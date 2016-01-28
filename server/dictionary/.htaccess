@@ -1,0 +1,13 @@
+RewriteEngine On
+RewriteBase /
+
+# Allow any files or directories that exist to be displayed directly
+RewriteCond ${REQUEST_URI} ^.+$
+RewriteCond %{REQUEST_FILENAME} \.(gif|jpe?g|png|js|css|swf|php|ico|txt|pdf|xml|apk)$ [OR]
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d [OR]
+RewriteCond %{REQUEST_FILENAME} -l
+RewriteRule ^ - [L]
+
+RewriteCond %{REQUEST_URI} !index\.php [NC]
+RewriteRule ^sign/([0-9]+)/?$ /dictionary/index.php?sign=$1 [L]

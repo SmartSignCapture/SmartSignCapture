@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="90dp"
+    android:padding="10dp"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:id="@+id/ivAvatar"
+        android:src="@drawable/ic_friends"
+        android:layout_marginRight="10dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp" />
+
+    <TextView
+        android:id="@+id/txUserName"
+        android:text="Mortatella"
+        android:layout_toRightOf="@+id/ivAvatar"
+        android:layout_toLeftOf="@+id/ivStatus"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:textAppearance="@style/TextAppearance.Medium"
+        android:layout_alignParentTop="true"/>
+
+    <ImageView
+        android:id="@+id/ivStatus"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/ic_friends_add"
+        android:layout_centerInParent="true"
+        android:tint="@color/highlight_color"
+        android:layout_alignParentRight="true"/>
+</RelativeLayout>

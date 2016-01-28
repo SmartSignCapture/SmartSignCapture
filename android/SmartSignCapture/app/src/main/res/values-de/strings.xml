@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SmartSignCapture</string>
+    <string name="action_settings">Einstellungen</string>
+    <string name="email_address">Email Adresse</string>
+    <string name="empty_list_dictionary_entries">Du hast noch keine Einträge erstellt.</string>
+    <string name="empty_list_name_messages">Du hat noch keine Nachrichten empfangen</string>
+    <string name="first_name">Vorname</string>
+    <string name="home_tab_title_contacts">Freunde</string>
+    <string name="home_tab_title_messages">Nachrichten</string>
+    <string name="last_name">Nachname</string>
+    <string name="login">Login</string>
+    <string name="login_error_wrong_credentials">Email Adresse oder Passwort inkorrekt.</string>
+    <string name="me">Ich</string>
+    <string name="name">Name</string>
+    <string name="notifcation_friend_request_accepted_msg_stump">hat deine Anfrage akzeptiert.</string>
+    <string name="notifcation_friend_request_accepted_title">Anfrage akzeptiert</string>
+    <string name="notifcation_friend_request_msg_stump">will dein Freund werden.</string>
+    <string name="notifcation_friend_request_title">Freundschaftsanfrage</string>
+    <string name="notifcation_new_message_msg_stump">hat dir eine Nachricht geschickt.</string>
+    <string name="notifcation_new_message_title">Neue Nachricht</string>
+    <string name="password">Passwort</string>
+    <string name="password_retype">Passwort wiederholen</string>
+    <string name="register">Registrieren</string>
+    <string name="save_dictionary_entry">Eintrag speichern</string>
+    <string name="search_contats">Kontakte durchsuchen</string>
+    <string name="select_receiver">Empfänger auswählen</string>
+    <string name="tags">Tags</string>
+    <string name="title_activity_home">SmartSignCapture</string>
+    <string name="title_activity_send_message">Nachricht senden</string>
+    <string name="user_name">Benutzername</string>
+    <string name="validation_error_default_empty">Eintrag fehlt</string>
+    <string name="validation_error_email_address">Email-Adresse inkorrekt</string>
+    <string name="validation_error_email_address_empty">Email-Adresse fehlt</string>
+    <string name="validation_error_email_address_taken">Email-Adresse bereits vergeben</string>
+    <string name="validation_error_first_name_empty">Vorname fehlt</string>
+    <string name="validation_error_last_name_empty">Nachname fehlt</string>
+    <string name="validation_error_password">Kein gültiges Passwort</string>
+    <string name="validation_error_password_empty">Passwort eingeben</string>
+    <string name="validation_error_password_retype">Passwörter stimmen nicht überein</string>
+    <string name="validation_error_password_retype_empty">Passwort Wiederholung</string>
+    <string name="validation_error_server_not_reachable">Der Server ist momentan nicht erreichbar.</string>
+    <string name="validation_error_user_name_empty">Benutzername eingeben</string>
+    <string name="validation_error_user_name_taken">Benutzername bereits vergeben</string>
+    <string name="title_activity_save_dictionary_entry">Neuer Lexikon Eintrag</string>
+    <string name="error_msg_dict_entry_save">Dein Eintrag konnte nicht gespeichert werden. Bitte versuch es später noch einmal.</string>
+</resources>
